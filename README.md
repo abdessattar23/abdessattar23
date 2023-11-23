@@ -23,6 +23,8 @@
 
 ### Blogs posts
 <!-- BLOG-POST-LIST:START -->
+- [How to create and host your Portfolio without CODING for FREE](https://dev.to/abdessattar/how-to-create-and-host-your-portfolio-without-coding-for-free-50ol)
+- [New Team](https://dev.to/abdessattar/new-team-4019)
 <!-- BLOG-POST-LIST:END -->
 
 <h3 align="left">Connect with me:</h3>
