@@ -7,19 +7,19 @@
 
 <p align="left"> <a href="https://twitter.com/abdessattarelya" target="blank"><img src="https://img.shields.io/twitter/follow/abdessattarelya?logo=twitter&style=for-the-badge" alt="abdessattarelya" /></a> </p>
 
-- 🔭 I’m currently working on **EasyMoney**
+- 🔭 I’m currently working on **PhishingAI**
 
 - 🌱 I’m currently learning **ReactJs**
 
-- 👨‍💻 All of my projects are available at [https://abdessattar.netlify.app](https://abdessattar.netlify.app)
+- 👨‍💻 All of my projects are available at [https://abdessattar.is-a.dev](https://abdessattar.is-a.dev)
 
 - 💬 Ask me about **PHP or other languages**
 
 - 📫 How to reach me **elyagoubiabdessattar@gmail.com**
 
-- 📄 Know about my experiences [https://abdessattar.netlify.app](https://abdessattar.netlify.app)
+- 📄 Know about my experiences [https://abdessattar.is-a.dev](https://abdessattar.is-a.dev)
 
-- ⚡ Fun fact **I am 17 years old**
+- ⚡ Fun fact **I am 18 years old**
 
 ### Blogs posts
 <!-- BLOG-POST-LIST:START -->
