@@ -1,4 +1,4 @@
-<h1 align="center">Hi 👋, I'm Abdessattar Elyagoubi</h1>
+<h1 align="center">Hi 👋, I'm Mohammed Abdessetar Elyagoubi</h1>
 <h3 align="center">A passionate Full-Stack developer from Morocco</h3>
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=abdessattar23&label=Profile%20views&color=0e75b6&style=flat" alt="abdessattar23" /> </p>
@@ -7,13 +7,13 @@
 
 <p align="left"> <a href="https://twitter.com/abdessattarelya" target="blank"><img src="https://img.shields.io/twitter/follow/abdessattarelya?logo=twitter&style=for-the-badge" alt="abdessattarelya" /></a> </p>
 
-- 🔭 I’m currently working on **PhishingAI**
+- 🔭 I’m currently working on **BlaBlaMe**
 
-- 🌱 I’m currently learning **ReactJs**
+- 🌱 I’m currently learning **Java**
 
 - 👨‍💻 All of my projects are available at [https://abdessattar.is-a.dev](https://abdessattar.is-a.dev)
 
-- 💬 Ask me about **PHP or other languages**
+- 💬 Ask me about **PHP or JavaScript or Python**
 
 - 📫 How to reach me **elyagoubiabdessattar@gmail.com**
 
