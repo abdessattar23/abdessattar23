@@ -148,6 +148,7 @@ def recursive_loc(owner, repo_name, data, cache_comment, addition_total=0, delet
     for retry_wait in (2, 5, 10): # GitHub's GraphQL API intermittently 502s on deep history pagination; retry before giving up
         if request.status_code not in (502, 503, 504):
             break
+        print(f'    got HTTP {request.status_code} for {owner}/{repo_name}, retrying in {retry_wait}s...', flush=True)
         time.sleep(retry_wait)
         request = requests.post('https://api.github.com/graphql', json={'query': query, 'variables':variables}, headers=HEADERS)
     if request.status_code == 200:
@@ -173,7 +174,9 @@ def loc_counter_one_repo(owner, repo_name, data, cache_comment, history, additio
 
     if history['edges'] == [] or not history['pageInfo']['hasNextPage']:
         return addition_total, deletion_total, my_commits
-    else: return recursive_loc(owner, repo_name, data, cache_comment, addition_total, deletion_total, my_commits, history['pageInfo']['endCursor'])
+    else:
+        print(f'    ...{owner}/{repo_name}: {my_commits} of my commits scanned so far, fetching next page', flush=True)
+        return recursive_loc(owner, repo_name, data, cache_comment, addition_total, deletion_total, my_commits, history['pageInfo']['endCursor'])
 
 
 def loc_query(owner_affiliation, comment_size=0, force_cache=False, cursor=None, edges=[]):
@@ -243,6 +246,7 @@ def cache_builder(edges, comment_size, force_cache, loc_add=0, loc_del=0):
         with open(filename, 'r') as f:
             data = f.readlines()
 
+    print(f'Checking LOC cache for {len(edges)} repositories (cached={cached})...', flush=True)
     cache_comment = data[:comment_size] # save the comment block
     data = data[comment_size:] # remove those lines
     for index in range(len(edges)):
@@ -252,10 +256,12 @@ def cache_builder(edges, comment_size, force_cache, loc_add=0, loc_del=0):
                 if int(commit_count) != edges[index]['node']['defaultBranchRef']['target']['history']['totalCount']:
                     # if commit count has changed, update loc for that repo
                     owner, repo_name = edges[index]['node']['nameWithOwner'].split('/')
+                    print(f'  [{index + 1}/{len(edges)}] updating LOC for {owner}/{repo_name} ({commit_count} -> {edges[index]["node"]["defaultBranchRef"]["target"]["history"]["totalCount"]} commits)...', flush=True)
                     loc = recursive_loc(owner, repo_name, data, cache_comment)
                     data[index] = repo_hash + ' ' + str(edges[index]['node']['defaultBranchRef']['target']['history']['totalCount']) + ' ' + str(loc[2]) + ' ' + str(loc[0]) + ' ' + str(loc[1]) + '\n'
             except TypeError: # If the repo is empty
                 data[index] = repo_hash + ' 0 0 0 0\n'
+    print('LOC cache up to date.', flush=True)
     with open(filename, 'w') as f:
         f.writelines(cache_comment)
         f.writelines(data)

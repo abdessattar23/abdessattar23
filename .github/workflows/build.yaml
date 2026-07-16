@@ -29,7 +29,7 @@ jobs:
         env:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           USER_NAME: ${{ secrets.USER_NAME }}
-        run: python today.py
+        run: python -u today.py
       - name: Commit
         if: always()
         run: |-
